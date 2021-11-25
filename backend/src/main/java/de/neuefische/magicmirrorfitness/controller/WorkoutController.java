@@ -18,21 +18,25 @@ public class WorkoutController {
         this.workoutService = workoutService;
     }
 
+    @CrossOrigin
     @GetMapping
     public List<Workout> getAllWorkouts() {
         return workoutService.getAllWorkouts();
     }
 
+    @CrossOrigin
     @GetMapping("/{id}")
     public Workout getWorkoutById(@PathVariable String id) {
         return workoutService.getWorkout(id);
     }
 
+    @CrossOrigin
     @PostMapping
     public Workout addWorkout(@RequestBody String requestBody){
         return workoutService.addWorkout(requestBody);
     }
 
+    @CrossOrigin
     @DeleteMapping("/{id}")
     public String deleteWorkout(@PathVariable String id) {
         workoutService.deleteWorkout(id);

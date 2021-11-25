@@ -22,7 +22,6 @@ public class YouTubeConnection {
                 }
             }).setApplicationName("APP_ID").build();
             YouTube.Videos.List listVideosRequest = youtube.videos().list("statistics,snippet,contentDetails");
-            System.out.println("youTubeIdm  in der connection class: "+youTubeId);
             listVideosRequest.setId(youTubeId); // add list of video IDs here
             listVideosRequest.setKey(apiKey);
             VideoListResponse listResponse = listVideosRequest.execute();
