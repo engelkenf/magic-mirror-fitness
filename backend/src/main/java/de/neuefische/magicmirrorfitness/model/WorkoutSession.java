@@ -10,16 +10,14 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Document("workout")
-public class Workout {
+@Document("session")
+public class WorkoutSession {
 
-    private String id; //same as YouTube id
+    private String id;
     private String title;
     private String description;
-    private String thumbnailUrl;
-    private String duration;
-
-
-    private String category;
+    private String[] workoutIds;
+    private String executionTime;
+    private String overallLength;
 
 }
