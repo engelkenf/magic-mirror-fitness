@@ -1,0 +1,8 @@
+{
+  "properties": [
+    {
+      "name": "gooleapikey",
+      "type": "java.lang.String",
+      "description": "Google API key is needed to use YouTube Connection."
+  }
+] }
