@@ -2,12 +2,12 @@ package de.neuefische.magicmirrorfitness.service;
 
 import com.google.api.services.youtube.model.Video;
 import de.neuefische.magicmirrorfitness.api.YouTubeConnection;
+import de.neuefische.magicmirrorfitness.dto.WorkoutDto;
 import de.neuefische.magicmirrorfitness.model.Workout;
 import de.neuefische.magicmirrorfitness.repo.WorkoutRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import org.json.JSONObject;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Optional;
@@ -26,12 +26,10 @@ public class WorkoutService {
         return workoutRepo.findAll();
     }
 
-    public Workout addWorkout(String requestBody){
+    public Workout addWorkout(WorkoutDto workoutDto){
 
-        final JSONObject requestObjAsJson = new JSONObject(requestBody);
-
-        String videoId = requestObjAsJson.get("videoId").toString();
-        String category = requestObjAsJson.get("category").toString();
+        String videoId = workoutDto.getId();
+        String category = workoutDto.getCategory();
 
         YouTubeConnection youtubeInfo = new YouTubeConnection();
         Video video = youtubeInfo.getVideoInfoById(videoId);

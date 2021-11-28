@@ -28,8 +28,6 @@ public class YouTubeConnection {
 
             video = listResponse.getItems().get(0);
 
-
-
         } catch (GoogleJsonResponseException e) {
             System.err.println("There was a service error: " + e.getDetails().getCode() + " : "
                     + e.getDetails().getMessage());

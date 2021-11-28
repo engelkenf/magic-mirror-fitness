@@ -1,5 +1,6 @@
 package de.neuefische.magicmirrorfitness.controller;
 
+import de.neuefische.magicmirrorfitness.dto.WorkoutSessionDto;
 import de.neuefische.magicmirrorfitness.model.WorkoutSession;
 import de.neuefische.magicmirrorfitness.service.WorkoutSessionService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,8 +46,8 @@ public class WorkoutSessionController {
 
     @CrossOrigin
     @PutMapping
-    public WorkoutSession updateWorkoutSession(@RequestBody String requestBody){
-        return workoutSessionService.updateWorkoutSession(requestBody);
+    public WorkoutSession updateWorkoutSession(@RequestBody WorkoutSessionDto workoutSessionDto){
+        return workoutSessionService.updateWorkoutSession(workoutSessionDto);
     }
 
 

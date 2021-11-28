@@ -11,8 +11,8 @@
     <groupId>de.neuefische</groupId>
     <artifactId>magic-mirror-fitness</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>magic-mirror-fitness</name>
-    <description>magic-mirror-fitness</description>
+    <name>backend</name>
+    <description>backend</description>
     <properties>
         <java.version>17</java.version>
         <maven.compiler.source>17</maven.compiler.source>

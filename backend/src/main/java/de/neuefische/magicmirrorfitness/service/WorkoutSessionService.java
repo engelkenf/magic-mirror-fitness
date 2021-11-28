@@ -1,5 +1,6 @@
 package de.neuefische.magicmirrorfitness.service;
 
+import de.neuefische.magicmirrorfitness.dto.WorkoutSessionDto;
 import de.neuefische.magicmirrorfitness.model.WorkoutSession;
 import de.neuefische.magicmirrorfitness.repo.WorkoutSessionRepo;
 import org.json.JSONArray;
@@ -56,44 +57,23 @@ public class WorkoutSessionService {
         workoutSessionRepo.deleteById(id);
     }
 
-    public WorkoutSession updateWorkoutSession(String requestBody){
+    public WorkoutSession updateWorkoutSession(WorkoutSessionDto workoutSessionDto){
 
-        final JSONObject requestObjAsJson = new JSONObject(requestBody);
-
-        Optional<WorkoutSession> optionalWorkoutSession
-                = workoutSessionRepo.findById(
-                        requestObjAsJson.get("id").toString()
-        );
-
-        optionalWorkoutSession.get()
-                .setTitle(requestObjAsJson.get("title").toString());
-        optionalWorkoutSession.get()
-                .setDescription(requestObjAsJson.get("description").toString());
-
-        JSONArray workoutIdsJson = new JSONArray(requestObjAsJson.get("workoutIds").toString());
-        optionalWorkoutSession.get().setWorkoutIds(jsonArrToStringArr(workoutIdsJson));
-
-        optionalWorkoutSession.get()
-                .setExecutionTime(requestObjAsJson.get("executionTime").toString());
-        optionalWorkoutSession.get()
-                .setOverallLength(requestObjAsJson.get("overallLength").toString());
-
-        return workoutSessionRepo.save(optionalWorkoutSession.get());
-    }
+        if(workoutSessionRepo.existsById(workoutSessionDto.getId())){
+            WorkoutSession workoutSession = new WorkoutSession();
+            workoutSession.setId(workoutSessionDto.getId());
+            workoutSession.setTitle(workoutSessionDto.getTitle());
+            workoutSession.setDescription(workoutSessionDto.getDescription());
+            workoutSession.setWorkoutIds(workoutSessionDto.getWorkoutIds());
+            workoutSession.setOverallLength(workoutSessionDto.getOverallLength());
+            workoutSession.setExecutionTime(workoutSessionDto.getExecutionTime());
 
 
-    private String[] jsonArrToStringArr(JSONArray workoutIdsJson){
-
-        // Creating workout ID List and adding the data to it
-        List<String> workoutIdList = new ArrayList<>();
-        for (int i = 0; i < workoutIdsJson.length(); i++) {
-            workoutIdList.add(workoutIdsJson.getString(i));
+            return workoutSessionRepo.save(workoutSession);
+        } else{
+            throw new NoSuchElementException("Could not update WorkoutSession element! Element with id does not exist: " + workoutSessionDto.getId());
         }
 
-        // Creating String array as final output
-        int size = workoutIdList.size();
-
-        return workoutIdList.toArray(new String[size]);
     }
 
 }

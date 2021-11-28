@@ -19,7 +19,6 @@ public class Workout {
     private String thumbnailUrl;
     private String duration;
 
-
     private String category;
 
 }

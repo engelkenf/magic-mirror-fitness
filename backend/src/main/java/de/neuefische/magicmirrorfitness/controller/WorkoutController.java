@@ -1,5 +1,6 @@
 package de.neuefische.magicmirrorfitness.controller;
 
+import de.neuefische.magicmirrorfitness.dto.WorkoutDto;
 import de.neuefische.magicmirrorfitness.model.Workout;
 import de.neuefische.magicmirrorfitness.service.WorkoutService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,8 +33,8 @@ public class WorkoutController {
 
     @CrossOrigin
     @PostMapping
-    public Workout addWorkout(@RequestBody String requestBody){
-        return workoutService.addWorkout(requestBody);
+    public Workout addWorkout(@RequestBody WorkoutDto workoutDto){
+        return workoutService.addWorkout(workoutDto);
     }
 
     @CrossOrigin
