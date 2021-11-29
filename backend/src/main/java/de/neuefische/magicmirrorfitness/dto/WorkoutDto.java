@@ -9,6 +9,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class WorkoutDto {
 
-    private String id;
+    private String videoId;
     private String category;
 }

@@ -3,8 +3,6 @@ package de.neuefische.magicmirrorfitness.service;
 import de.neuefische.magicmirrorfitness.dto.WorkoutSessionDto;
 import de.neuefische.magicmirrorfitness.model.WorkoutSession;
 import de.neuefische.magicmirrorfitness.repo.WorkoutSessionRepo;
-import org.json.JSONArray;
-import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

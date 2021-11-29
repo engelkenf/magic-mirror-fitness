@@ -28,7 +28,7 @@ public class WorkoutService {
 
     public Workout addWorkout(WorkoutDto workoutDto){
 
-        String videoId = workoutDto.getId();
+        String videoId = workoutDto.getVideoId();
         String category = workoutDto.getCategory();
 
         YouTubeConnection youtubeInfo = new YouTubeConnection();

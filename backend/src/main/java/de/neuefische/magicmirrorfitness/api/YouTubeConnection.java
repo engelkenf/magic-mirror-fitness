@@ -6,14 +6,13 @@ import com.google.api.client.http.HttpRequestInitializer;
 import com.google.api.services.youtube.YouTube;
 import com.google.api.services.youtube.model.Video;
 import com.google.api.services.youtube.model.VideoListResponse;
-import org.springframework.beans.factory.annotation.Value;
 
 import java.io.IOException;
 
 public class YouTubeConnection {
 
-    @Value("${googleapikey}")
-    private String apiKey;
+    private String apiKey = "AIzaSyCg5ldOrjwwWPXDpLUZB3hpmdv-jaelqC0";
+
     Video video = new Video();
 
     public Video getVideoInfoById(String youTubeId) {
