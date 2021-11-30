@@ -25,29 +25,16 @@ class WorkoutSessionServiceTest {
     void testAddWorkoutSession() {
 
         //GIVEN
-        String workoutSessionId = "f3c447b1-16b8-46c8-b528-0509fe652b5e";
-        String[] workoutIds1 = {"ID1", "ID2"};
+        WorkoutSession expected = new WorkoutSession();
 
-        WorkoutSession workoutSession1 = new WorkoutSession();
-        workoutSession1.setId(workoutSessionId);
-        workoutSession1.setTitle("Session Title 1");
-        workoutSession1.setDescription("Session Description");
-        workoutSession1.setWorkoutIds(workoutIds1);
-
-        WorkoutSession workoutSession2 = new WorkoutSession();
-        workoutSession2.setId(workoutSessionId);
-        workoutSession2.setTitle("Session Title 2");
-        workoutSession2.setDescription("Session Description");
-        workoutSession2.setWorkoutIds(workoutIds1);
-
-        when(workoutSessionRepo.save(any())).thenReturn(workoutSession1);
+        when(workoutSessionRepo.save(any())).thenReturn(expected);
 
         //WHEN
         WorkoutSession actual = workoutSessionService.addWorkoutSession();
 
         //THEN
-        verify(workoutSessionRepo).save(workoutSession1);
-        assertThat(actual, is(workoutSession2));
+        verify(workoutSessionRepo).save(any());
+        assertThat(actual, is(expected));
     }
 
     @Test

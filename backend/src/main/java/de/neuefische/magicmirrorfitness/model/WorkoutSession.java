@@ -20,4 +20,5 @@ public class WorkoutSession {
     private String executionTime;
     private String overallLength;
 
+
 }

@@ -41,7 +41,7 @@ export default function WorkoutSessionDetail({sessionId, workoutId, setWorkoutId
 
                             <ListItem>
                                 <ListItemText
-                                    //primary={workoutSession.title}
+                                    primary={workoutSession.title}
                                 />
                             </ListItem>
 
